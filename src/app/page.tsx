@@ -7,6 +7,7 @@ import GameOverOverlay from "@/components/GameOverOverlay";
 import Instructions from "@/components/Instructions";
 import { useTetrisGame } from "@/hooks/useTetrisGame";
 import { useTouchControls } from "@/hooks/useTouchControls";
+import { useKeyboardControls } from "@/hooks/useKeyboardControls";
 
 export default function Home() {
   const {
@@ -19,6 +20,16 @@ export default function Home() {
   } = useTetrisGame();
 
   const { handleTouchStart, handleTouchEnd } = useTouchControls();
+
+  // Enable keyboard controls
+  useKeyboardControls({
+    onMoveLeft: actions.moveLeft,
+    onMoveRight: actions.moveRight,
+    onMoveDown: actions.moveDown,
+    onRotate: actions.rotate,
+    onDrop: actions.drop,
+    gameOver,
+  });
 
   const onTouchEnd = (e: React.TouchEvent) => {
     handleTouchEnd(e, {

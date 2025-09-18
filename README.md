@@ -20,8 +20,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to play Te
 
 ## How to Play
 
+### Controls
 - **Mobile**: Swipe left/right to move pieces, swipe up to rotate, swipe down to drop
-- **Desktop**: Use the on-screen controls to move, rotate, and drop pieces
+- **Desktop**: 
+  - **Keyboard**: Use arrow keys to move and rotate, spacebar to hard drop
+  - **Mouse**: Click on-screen controls
 - Clear horizontal lines to score points and increase your level
 - Game gets faster as you progress through levels
 

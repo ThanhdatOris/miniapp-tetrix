@@ -1,4 +1,5 @@
 import { COLORS } from "@/constants/game";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface GameBoardProps {
   board: number[][];
@@ -7,9 +8,15 @@ interface GameBoardProps {
 }
 
 export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoardProps) {
+  const { isDark } = useTheme();
+  
   return (
     <div
-      className="relative touch-none select-none mx-auto border-4 border-indigo-400 rounded-lg bg-white shadow-lg tetris-board"
+      className={`relative touch-none select-none mx-auto rounded-2xl shadow-2xl tetris-board border transition-all duration-300 ${
+        isDark 
+          ? 'bg-black/30 backdrop-blur-lg border-white/20' 
+          : 'bg-white/30 backdrop-blur-lg border-white/40'
+      }`}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -18,8 +25,12 @@ export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoard
           {row.map((cell, x) => (
             <div
               key={x}
-              className={`tetris-cell border border-gray-200 ${
-                cell ? COLORS[cell - 1] + " shadow-inner" : "bg-white"
+              className={`tetris-cell transition-all duration-200 ${
+                cell 
+                  ? `${COLORS[cell - 1]} shadow-lg border border-white/30 backdrop-blur-sm` 
+                  : isDark 
+                    ? "bg-black/20 border border-white/10" 
+                    : "bg-white/20 border border-gray-300/30"
               }`}
             />
           ))}

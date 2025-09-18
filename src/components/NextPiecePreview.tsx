@@ -1,14 +1,23 @@
 import { COLORS } from "@/constants/game";
 import { Piece } from "@/types/game";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface NextPiecePreviewProps {
   nextPiece: Piece;
 }
 
 export default function NextPiecePreview({ nextPiece }: NextPiecePreviewProps) {
+  const { isDark } = useTheme();
+  
   return (
-    <div className="bg-white rounded-lg border-2 border-indigo-300 p-3 shadow-sm">
-      <h3 className="text-xs font-semibold text-indigo-700 mb-2 text-center">Next</h3>
+    <div className={`rounded-2xl p-4 shadow-xl border transition-all duration-300 ${
+      isDark 
+        ? 'bg-black/20 backdrop-blur-md border-white/10' 
+        : 'bg-white/20 backdrop-blur-md border-white/30'
+    }`}>
+      <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-300 mb-3 text-center">
+        Next
+      </h3>
       <div className="flex justify-center">
         <div className="grid grid-cols-4 gap-0.5">
           {Array.from({ length: 16 }).map((_, index) => {
@@ -18,8 +27,12 @@ export default function NextPiecePreview({ nextPiece }: NextPiecePreviewProps) {
             return (
               <div
                 key={index}
-                className={`w-4 h-4 border border-gray-200 ${
-                  cellValue ? COLORS[nextPiece.type] + " shadow-inner" : "bg-gray-50"
+                className={`w-5 h-5 rounded-sm transition-all duration-200 ${
+                  cellValue 
+                    ? `${COLORS[nextPiece.type]} shadow-md border border-white/30 backdrop-blur-sm` 
+                    : isDark 
+                      ? "bg-black/10 border border-white/5" 
+                      : "bg-white/10 border border-gray-300/20"
                 }`}
               />
             );

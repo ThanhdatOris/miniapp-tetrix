@@ -1,4 +1,5 @@
 import { useTheme } from "@/contexts/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
 
 interface GameInfoProps {
   score: number;
@@ -22,7 +23,12 @@ export default function GameInfo({
   return (
     <div className="w-full max-w-xs">
       {/* Header */}
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 relative">
+        {/* Theme Toggle - positioned top right */}
+        <div className="absolute -top-2 -right-2">
+          <ThemeToggle />
+        </div>
+        
         <h1 className="text-3xl font-bold mb-2 text-indigo-700 dark:text-indigo-300 tracking-tight drop-shadow-lg">
           Tetrix
         </h1>

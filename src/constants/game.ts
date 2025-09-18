@@ -12,6 +12,16 @@ export const COLORS = [
   "bg-orange-400", // L
 ];
 
+export const DARK_COLORS = [
+  "bg-cyan-500", // I - darker cyan
+  "bg-yellow-500", // O - darker yellow
+  "bg-purple-500", // T - darker purple
+  "bg-green-500", // S - darker green
+  "bg-red-500", // Z - darker red
+  "bg-blue-500", // J - darker blue
+  "bg-orange-500", // L - darker orange
+];
+
 export const TETROMINO_SHAPES = [
   // I
   [

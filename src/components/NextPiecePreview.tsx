@@ -1,6 +1,6 @@
-import { COLORS } from "@/constants/game";
-import { Piece } from "@/types/game";
+import { COLORS, DARK_COLORS } from "@/constants/game";
 import { useTheme } from "@/contexts/ThemeContext";
+import { Piece } from "@/types/game";
 
 interface NextPiecePreviewProps {
   nextPiece: Piece;
@@ -29,7 +29,7 @@ export default function NextPiecePreview({ nextPiece }: NextPiecePreviewProps) {
                 key={index}
                 className={`w-5 h-5 rounded-sm transition-all duration-200 ${
                   cellValue 
-                    ? `${COLORS[nextPiece.type]} shadow-md border border-white/30 backdrop-blur-sm` 
+                    ? `${isDark ? DARK_COLORS[nextPiece.type] : COLORS[nextPiece.type]} shadow-md border border-white/30 backdrop-blur-sm` 
                     : isDark 
                       ? "bg-black/10 border border-white/5" 
                       : "bg-white/10 border border-gray-300/20"

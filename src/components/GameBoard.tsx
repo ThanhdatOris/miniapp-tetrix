@@ -1,4 +1,4 @@
-import { COLORS } from "@/constants/game";
+import { COLORS, DARK_COLORS } from "@/constants/game";
 import { useTheme } from "@/contexts/ThemeContext";
 
 interface GameBoardProps {
@@ -27,7 +27,7 @@ export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoard
               key={x}
               className={`tetris-cell transition-all duration-200 ${
                 cell 
-                  ? `${COLORS[cell - 1]} shadow-lg border border-white/30 backdrop-blur-sm` 
+                  ? `${isDark ? DARK_COLORS[cell - 1] : COLORS[cell - 1]} shadow-lg border border-white/30 backdrop-blur-sm` 
                   : isDark 
                     ? "bg-black/20 border border-white/10" 
                     : "bg-white/20 border border-gray-300/30"

@@ -5,13 +5,15 @@ import GameControls from "@/components/GameControls";
 import GameInfo from "@/components/GameInfo";
 import GameOverOverlay from "@/components/GameOverOverlay";
 import Instructions from "@/components/Instructions";
+import NextPiecePreview from "@/components/NextPiecePreview";
+import { useKeyboardControls } from "@/hooks/useKeyboardControls";
 import { useTetrisGame } from "@/hooks/useTetrisGame";
 import { useTouchControls } from "@/hooks/useTouchControls";
-import { useKeyboardControls } from "@/hooks/useKeyboardControls";
 
 export default function Home() {
   const {
     board,
+    nextPiece,
     score,
     level,
     linesCleared,
@@ -50,17 +52,23 @@ export default function Home() {
         onRestart={actions.restart}
       />
       
-      <div className="relative">
-        <GameBoard
-          board={board}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={onTouchEnd}
-        />
-        <GameOverOverlay
-          visible={gameOver}
-          score={score}
-          onRestart={actions.restart}
-        />
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-4">
+        <div className="relative">
+          <GameBoard
+            board={board}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={onTouchEnd}
+          />
+          <GameOverOverlay
+            visible={gameOver}
+            score={score}
+            onRestart={actions.restart}
+          />
+        </div>
+        
+        <div className="flex flex-col gap-4">
+          <NextPiecePreview nextPiece={nextPiece} />
+        </div>
       </div>
 
       <GameControls

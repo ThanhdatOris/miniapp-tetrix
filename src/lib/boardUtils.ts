@@ -1,5 +1,5 @@
+import { BOARD_HEIGHT, BOARD_WIDTH } from "@/constants/game";
 import { Piece } from "@/types/game";
-import { BOARD_WIDTH, BOARD_HEIGHT } from "@/constants/game";
 
 export function checkCollision(
   board: number[][],

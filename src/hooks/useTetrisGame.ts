@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback } from "react";
-import { Piece } from "@/types/game";
-import { getRandomPiece, rotatePiece } from "@/lib/pieceUtils";
-import { 
-  checkCollision, 
-  mergePieceToBoard, 
-  clearCompletedLines, 
-  createEmptyBoard 
+import { INITIAL_DROP_SPEED, LINES_PER_LEVEL, POINTS_PER_LINE } from "@/constants/game";
+import {
+    checkCollision,
+    clearCompletedLines,
+    createEmptyBoard,
+    mergePieceToBoard
 } from "@/lib/boardUtils";
-import { 
-  movePieceLeft, 
-  movePieceRight, 
-  movePieceDown, 
-  dropPiece, 
-  canPieceMove 
+import {
+    canPieceMove,
+    dropPiece,
+    movePieceDown,
+    movePieceLeft,
+    movePieceRight
 } from "@/lib/movementUtils";
-import { INITIAL_DROP_SPEED, POINTS_PER_LINE, LINES_PER_LEVEL } from "@/constants/game";
+import { getRandomPiece, rotatePiece } from "@/lib/pieceUtils";
+import { Piece } from "@/types/game";
+import { useCallback, useEffect, useState } from "react";
 
 export function useTetrisGame() {
   const [board, setBoard] = useState<number[][]>(createEmptyBoard());

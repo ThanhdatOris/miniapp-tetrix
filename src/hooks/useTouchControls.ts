@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { TouchGesture } from "@/types/game";
+import { useState } from "react";
 
 export function useTouchControls() {
   const [touchStart, setTouchStart] = useState<TouchGesture>(null);

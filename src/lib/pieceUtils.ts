@@ -1,5 +1,5 @@
+import { BOARD_WIDTH, COLORS, TETROMINO_SHAPES } from "@/constants/game";
 import { Piece } from "@/types/game";
-import { TETROMINO_SHAPES, COLORS, BOARD_WIDTH } from "@/constants/game";
 
 export function getRandomPiece(): Piece {
   const type = Math.floor(Math.random() * TETROMINO_SHAPES.length);

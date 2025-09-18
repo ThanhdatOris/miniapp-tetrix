@@ -9,23 +9,29 @@ This project was bootstrapped with [Next.js](https://nextjs.org) and [`create-ne
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to play Tetrix!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Play
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Mobile**: Swipe left/right to move pieces, swipe up to rotate, swipe down to drop
+- **Desktop**: Use the on-screen controls to move, rotate, and drop pieces
+- Clear horizontal lines to score points and increase your level
+- Game gets faster as you progress through levels
+
+## Project Structure
+
+- `/src/components` - Modular UI components (GameBoard, Controls, etc.)
+- `/src/hooks` - Custom React hooks for game logic and touch controls
+- `/src/lib` - Pure utility functions for game mechanics
+- `/src/types` - TypeScript type definitions
+- `/src/constants` - Game configuration and constants
 
 ## Learn More
 

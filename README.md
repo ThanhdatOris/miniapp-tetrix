@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Tetrix - Not wrong spelling
+
+Tetrix is a beautiful, mobile-first Tetris game built with Next.js and Tailwind CSS. Enjoy classic gameplay with a modern, touch-friendly interface optimized for mobile devices.
+
+---
+
+This project was bootstrapped with [Next.js](https://nextjs.org) and [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 

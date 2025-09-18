@@ -1,7 +1,9 @@
 {
-  "name": "miniapp-tetrix",
+  "name": "tetrix",
   "version": "0.1.0",
+  "description": "Tetrix - Not wrong spelling: A beautiful, mobile-first Tetris game built with Next.js and Tailwind CSS.",
   "private": true,
+  "author": "Oris",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",

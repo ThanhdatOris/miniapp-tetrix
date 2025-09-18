@@ -27,10 +27,14 @@ export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoard
               key={x}
               className={`tetris-cell transition-all duration-200 ${
                 cell 
-                  ? `${isDark ? DARK_COLORS[cell - 1] : COLORS[cell - 1]} shadow-lg border border-white/30 backdrop-blur-sm` 
+                  ? `${isDark ? DARK_COLORS[cell - 1] : COLORS[cell - 1]} shadow-lg border border-white/30 backdrop-blur-sm ${
+                      isDark 
+                        ? 'shadow-inner shadow-black/40' 
+                        : 'shadow-inner shadow-white/60'
+                    }` 
                   : isDark 
-                    ? "bg-black/20 border border-white/10" 
-                    : "bg-white/20 border border-gray-300/30"
+                    ? "bg-black/20 border border-white/10 shadow-inner shadow-black/20" 
+                    : "bg-white/20 border border-gray-300/30 shadow-inner shadow-gray-500/20"
               }`}
             />
           ))}

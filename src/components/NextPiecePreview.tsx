@@ -29,10 +29,14 @@ export default function NextPiecePreview({ nextPiece }: NextPiecePreviewProps) {
                 key={index}
                 className={`w-5 h-5 rounded-sm transition-all duration-200 ${
                   cellValue 
-                    ? `${isDark ? DARK_COLORS[nextPiece.type] : COLORS[nextPiece.type]} shadow-md border border-white/30 backdrop-blur-sm` 
+                    ? `${isDark ? DARK_COLORS[nextPiece.type] : COLORS[nextPiece.type]} shadow-md border border-white/30 backdrop-blur-sm ${
+                        isDark 
+                          ? 'shadow-inner shadow-black/40' 
+                          : 'shadow-inner shadow-white/60'
+                      }` 
                     : isDark 
-                      ? "bg-black/10 border border-white/5" 
-                      : "bg-white/10 border border-gray-300/20"
+                      ? "bg-black/10 border border-white/5 shadow-inner shadow-black/20" 
+                      : "bg-white/10 border border-gray-300/20 shadow-inner shadow-gray-500/20"
                 }`}
               />
             );

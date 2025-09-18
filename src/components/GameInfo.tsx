@@ -6,17 +6,13 @@ interface GameInfoProps {
   highScore: number;
   level: number;
   linesCleared: number;
-  gameOver: boolean;
-  onRestart: () => void;
 }
 
 export default function GameInfo({ 
   score, 
   highScore,
   level, 
-  linesCleared, 
-  gameOver, 
-  onRestart 
+  linesCleared
 }: GameInfoProps) {
   const { isDark } = useTheme();
   
@@ -55,20 +51,6 @@ export default function GameInfo({
             Lines: {linesCleared}
           </div>
         </div>
-      </div>
-
-      {/* Controls */}
-      <div className="flex justify-end">
-        <button
-          className={`px-4 py-2 text-sm font-semibold rounded-xl shadow-lg transition-all duration-300 active:scale-95 ${
-            isDark
-              ? 'bg-indigo-600/80 hover:bg-indigo-500/90 text-white backdrop-blur-sm border border-indigo-400/30'
-              : 'bg-indigo-500/80 hover:bg-indigo-600/90 text-white backdrop-blur-sm border border-white/30'
-          }`}
-          onClick={onRestart}
-        >
-          {gameOver ? "Restart" : "Reset"}
-        </button>
       </div>
     </div>
   );

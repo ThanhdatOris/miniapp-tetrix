@@ -13,19 +13,37 @@
   max-width: 10vw;
   max-height: 10vw;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* 3D Glass effect for tetris cells */
+.tetris-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 50%, rgba(0, 0, 0, 0.1));
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.dark .tetris-cell::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 50%, rgba(0, 0, 0, 0.3));
 }
 
 /* Glassmorphism utilities */
 .glass {
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-dark {
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }

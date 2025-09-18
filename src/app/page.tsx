@@ -6,6 +6,7 @@ import GameInfo from "@/components/GameInfo";
 import GameOverOverlay from "@/components/GameOverOverlay";
 import Instructions from "@/components/Instructions";
 import NextPiecePreview from "@/components/NextPiecePreview";
+import ResetButton from "@/components/ResetButton";
 import { ThemeProvider, useTheme } from "@/contexts/ThemeContext";
 import { useKeyboardControls } from "@/hooks/useKeyboardControls";
 import { useTetrisGame } from "@/hooks/useTetrisGame";
@@ -71,8 +72,6 @@ function TetrixGame() {
             highScore={highScore}
             level={level}
             linesCleared={linesCleared}
-            gameOver={gameOver}
-            onRestart={actions.restart}
           />
           
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
@@ -91,6 +90,7 @@ function TetrixGame() {
             
             <div className="flex flex-col gap-4">
               <NextPiecePreview nextPiece={nextPiece} />
+              <ResetButton gameOver={gameOver} onRestart={actions.restart} />
             </div>
           </div>
 

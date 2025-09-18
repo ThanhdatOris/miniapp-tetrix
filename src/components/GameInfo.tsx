@@ -28,7 +28,8 @@ export default function GameInfo({
         <h1 className="text-3xl font-bold mb-2 text-indigo-700 dark:text-indigo-300 tracking-tight drop-shadow-lg">
           Tetrix
         </h1>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Not wrong spelling</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Not wrong spelling</p>
+        <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">by Oris</p>
       </div>
 
       {/* Game Stats - Glassmorphism Card */}

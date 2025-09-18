@@ -1,52 +1,137 @@
 
 # Tetrix - Not wrong spelling
 
-Tetrix is a beautiful, mobile-first Tetris game built with Next.js and Tailwind CSS. Enjoy classic gameplay with a modern, touch-friendly interface optimized for mobile devices.
+Play online at: https://miniapp-tetrix.vercel.app/
 
----
+A beautiful, mobile-first Tetris game built with Next.js and Tailwind CSS. Features glassmorphism design, dark mode support, and intuitive touch controls for modern gaming experience.
 
-This project was bootstrapped with [Next.js](https://nextjs.org) and [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Author:** Oris  
+**Version:** 1.0.0  
+**License:** MIT
 
-## Getting Started
+## ✨ Features
 
-First, install dependencies and run the development server:
+- 🎮 **Classic Tetris Gameplay** - Traditional piece dropping and line clearing
+- 📱 **Mobile-First Design** - Optimized for touch devices with swipe controls
+- 🌙 **Dark/Light Mode** - Toggle between themes with glassmorphism effects
+- 💎 **3D Glass Blocks** - Beautiful glassmorphism design with inner shadows
+- 🎯 **Next Piece Preview** - See upcoming pieces to plan your strategy
+- 🏆 **High Score Tracking** - Session-based high score system
+- ⌨️ **Keyboard Support** - Full keyboard controls for desktop users
+- 🎨 **Responsive Design** - Perfect on mobile, tablet, and desktop
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/ThanhdatOris/miniapp-tetrix.git
+cd tetrix
+
+# Install dependencies
 npm install
+
+# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to play Tetrix!
+Open [http://localhost:3000](http://localhost:3000) to play Tetrix!
 
-## How to Play
+## 🎮 How to Play
 
 ### Controls
-- **Mobile**: Swipe left/right to move pieces, swipe up to rotate, swipe down to drop
-- **Desktop**: 
-  - **Keyboard**: Use arrow keys to move and rotate, spacebar to hard drop
-  - **Mouse**: Click on-screen controls
-- Clear horizontal lines to score points and increase your level
-- Game gets faster as you progress through levels
+- **📱 Mobile/Touch**: 
+  - Swipe left/right to move pieces
+  - Swipe up to rotate pieces
+  - Swipe down to hard drop
+- **⌨️ Desktop/Keyboard**: 
+  - Arrow keys to move and rotate
+  - Spacebar to hard drop
+  - On-screen controls also available
+- **🎯 Objective**: Clear horizontal lines to score points and increase level
+- **⚡ Challenge**: Game speed increases as you progress through levels
 
-## Project Structure
+### Game Features
+- **Next Piece Preview**: Plan your moves with upcoming piece visibility
+- **High Score**: Beat your session best score
+- **Theme Toggle**: Switch between light and dark glassmorphism themes
+- **Reset Button**: Restart anytime to improve your score
 
-- `/src/components` - Modular UI components (GameBoard, Controls, etc.)
-- `/src/hooks` - Custom React hooks for game logic and touch controls
-- `/src/lib` - Pure utility functions for game mechanics
-- `/src/types` - TypeScript type definitions
-- `/src/constants` - Game configuration and constants
+## 🏗️ Tech Stack
 
-## Learn More
+- **Framework**: Next.js 15.5.3 with App Router
+- **Styling**: Tailwind CSS v4 with custom glassmorphism effects
+- **Language**: TypeScript for type safety
+- **State Management**: React hooks with custom game logic
+- **Theme System**: Context-based dark/light mode with localStorage persistence
+- **Build Tool**: Turbopack for fast development and builds
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                  # Next.js App Router
+│   ├── layout.tsx       # Root layout with metadata
+│   ├── page.tsx         # Main game page
+│   └── globals.css      # Global styles and glassmorphism effects
+├── components/          # Modular UI components
+│   ├── GameBoard.tsx    # Main tetris board with 3D glass blocks
+│   ├── GameInfo.tsx     # Score display and theme toggle
+│   ├── GameControls.tsx # Touch/mouse controls
+│   ├── NextPiecePreview.tsx # Upcoming piece display
+│   ├── ResetButton.tsx  # Game reset functionality
+│   ├── ThemeToggle.tsx  # Dark/light mode switcher
+│   └── Instructions.tsx # How to play guide
+├── hooks/               # Custom React hooks
+│   ├── useTetrisGame.ts # Core game logic and state
+│   ├── useTouchControls.ts # Touch gesture handling
+│   └── useKeyboardControls.ts # Keyboard input
+├── lib/                 # Pure utility functions
+│   ├── boardUtils.ts    # Board manipulation functions
+│   ├── pieceUtils.ts    # Piece rotation and generation
+│   └── movementUtils.ts # Movement validation
+├── contexts/            # React contexts
+│   └── ThemeContext.tsx # Theme state management
+├── types/               # TypeScript definitions
+│   └── game.ts         # Game-related interfaces
+└── constants/           # Configuration
+    └── game.ts         # Game rules and piece definitions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Production Build
 
-## Deploy on Vercel
+```bash
+# Build for production
+npm run build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Start production server
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Oris**
+- Created with ❤️ for classic gaming enthusiasts
+- Built with modern web technologies and glassmorphism design
+- Optimized for mobile-first gaming experience
+
+---
+
+*Tetrix - Not wrong spelling* © 2025 Oris

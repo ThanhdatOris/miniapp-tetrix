@@ -13,7 +13,8 @@ export default function Instructions({ className = "" }: InstructionsProps) {
     } ${className}`}>
       <div className="mb-1">📱 <strong>Touch:</strong> Swipe left/right to move, up to rotate, down to drop</div>
       <div className="mb-1">⌨️ <strong>Keyboard:</strong> Arrow keys to move/rotate, Space to drop</div>
-      <div>🖥️ <strong>Desktop:</strong> Use on-screen controls or keyboard</div>
+      <div className="mb-2">🖥️ <strong>Desktop:</strong> Use on-screen controls or keyboard</div>
+      <div className="text-xs opacity-60">© 2025 Oris</div>
     </div>
   );
 }

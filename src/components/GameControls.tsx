@@ -1,62 +1,52 @@
 import { useTheme } from "@/contexts/ThemeContext";
 
-interface GameControlsProps {
-  onMoveLeft: () => void;
-  onMoveRight: () => void;
-  onRotate: () => void;
-  onDrop: () => void;
-}
-
-export default function GameControls({ 
-  onMoveLeft, 
-  onMoveRight, 
-  onRotate, 
-  onDrop 
-}: GameControlsProps) {
+export default function GameControls() {
   const { isDark } = useTheme();
   
-  const buttonClasses = `rounded-2xl w-14 h-14 text-xl shadow-xl transition-all duration-300 active:scale-95 border ${
-    isDark
-      ? 'bg-indigo-600/70 hover:bg-indigo-500/80 text-white backdrop-blur-md border-white/20'
-      : 'bg-indigo-400/70 hover:bg-indigo-500/80 text-white backdrop-blur-md border-white/30'
-  }`;
-  
-  const dropButtonClasses = `rounded-2xl w-14 h-14 text-xl shadow-xl transition-all duration-300 active:scale-95 border ${
-    isDark
-      ? 'bg-purple-600/70 hover:bg-purple-500/80 text-white backdrop-blur-md border-white/20'
-      : 'bg-purple-500/70 hover:bg-purple-600/80 text-white backdrop-blur-md border-white/30'
-  }`;
-  
   return (
-    <div className="flex gap-3 mt-4 sm:gap-4">
-      <button 
-        className={buttonClasses}
-        onClick={onMoveLeft} 
-        aria-label="Move Left"
-      >
-        ◀️
-      </button>
-      <button 
-        className={buttonClasses}
-        onClick={onRotate} 
-        aria-label="Rotate"
-      >
-        🔄
-      </button>
-      <button 
-        className={buttonClasses}
-        onClick={onMoveRight} 
-        aria-label="Move Right"
-      >
-        ▶️
-      </button>
-      <button 
-        className={dropButtonClasses}
-        onClick={onDrop} 
-        aria-label="Drop"
-      >
-        ⏬
-      </button>
+    <div className={`rounded-xl p-4 sm:p-6 shadow-lg border transition-all duration-300 ${
+      isDark 
+        ? 'bg-black/20 backdrop-blur-md border-white/10' 
+        : 'bg-white/30 backdrop-blur-md border-white/30'
+    }`}>
+      <h3 className="text-sm sm:text-lg font-semibold text-indigo-700 dark:text-indigo-300 mb-3 sm:mb-4 text-center flex items-center justify-center gap-2">
+        <i className="fas fa-keyboard text-lg sm:text-xl"></i>
+        Keyboard Controls
+      </h3>
+      
+      <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+        <div className="flex items-center justify-between p-3 sm:p-4 rounded bg-black/10 dark:bg-white/10">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <i className="fas fa-arrows-alt-h text-blue-400 text-xl sm:text-2xl"></i>
+            <span className="font-medium">← →</span>
+          </div>
+          <span className="text-gray-500 dark:text-gray-400">Move</span>
+        </div>
+        
+        <div className="flex items-center justify-between p-3 sm:p-4 rounded bg-black/10 dark:bg-white/10">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <i className="fas fa-undo text-green-400 text-xl sm:text-2xl"></i>
+            <span className="font-medium">↑</span>
+          </div>
+          <span className="text-gray-500 dark:text-gray-400">Rotate</span>
+        </div>
+        
+        <div className="flex items-center justify-between p-3 sm:p-4 rounded bg-black/10 dark:bg-white/10">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <i className="fas fa-arrow-down text-purple-400 text-xl sm:text-2xl"></i>
+            <span className="font-medium">↓</span>
+          </div>
+          <span className="text-gray-500 dark:text-gray-400">Soft Drop</span>
+        </div>
+        
+        <div className="flex items-center justify-between p-3 sm:p-4 rounded bg-black/10 dark:bg-white/10">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <i className="fas fa-bolt text-red-400 text-xl sm:text-2xl"></i>
+            <span className="font-medium">Space</span>
+          </div>
+          <span className="text-gray-500 dark:text-gray-400">Hard Drop</span>
+        </div>
+      </div>
     </div>
   );
 }

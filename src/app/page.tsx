@@ -66,20 +66,44 @@ function TetrixGame() {
           ? 'bg-gradient-to-br from-black/20 to-purple-900/30' 
           : 'bg-gradient-to-br from-white/30 to-blue-300/20'
       }`}>
-        <div className="flex flex-col items-center min-h-screen py-6 px-4">
-          <GameInfo
-            score={score}
-            highScore={highScore}
-            level={level}
-            linesCleared={linesCleared}
-          />
+        <div className="flex flex-col items-center justify-center min-h-screen py-4 px-4">
+          {/* Mobile Header Section */}
+          <div className="w-full max-w-sm mb-4 sm:hidden">
+            <div className="flex items-stretch gap-4 mb-4">
+              <div className="flex-1">
+                <GameInfo
+                  score={score}
+                  highScore={highScore}
+                  level={level}
+                  linesCleared={linesCleared}
+                />
+              </div>
+              <div>
+                <NextPiecePreview nextPiece={nextPiece} />
+              </div>
+            </div>
+          </div>
           
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-            <div className="relative">
+          {/* Desktop 3-Column Layout / Mobile Game Area - Centered */}
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start gap-4 sm:gap-8 w-full max-w-6xl mx-auto">
+            
+            {/* Left Sidebar - Desktop Game Info */}
+            <div className="hidden sm:flex flex-col gap-4 w-96 min-w-80 h-full">
+              <GameInfo
+                score={score}
+                highScore={highScore}
+                level={level}
+                linesCleared={linesCleared}
+              />
+            </div>
+            
+            {/* Center - Game Board (Perfectly Centered) */}
+            <div className="relative flex-shrink-0 flex items-center justify-center">
               <GameBoard
                 board={board}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={onTouchEnd}
+                onDoubleTap={actions.drop}
               />
               <GameOverOverlay
                 visible={gameOver}
@@ -88,20 +112,24 @@ function TetrixGame() {
               />
             </div>
             
-            <div className="flex flex-col gap-4">
-              <NextPiecePreview nextPiece={nextPiece} />
+            {/* Right Sidebar - Next Piece & Controls */}
+            <div className="hidden sm:flex flex-col gap-4 w-96 min-w-80 h-full justify-between">
+              <div className="flex flex-col gap-4">
+                <NextPiecePreview nextPiece={nextPiece} />
+                <GameControls />
+              </div>
               <ResetButton gameOver={gameOver} onRestart={actions.restart} />
             </div>
           </div>
 
-          <GameControls
-            onMoveLeft={actions.moveLeft}
-            onMoveRight={actions.moveRight}
-            onRotate={actions.rotate}
-            onDrop={actions.drop}
-          />
-
-          <Instructions className="mt-6" />
+          {/* Mobile Reset Button and Instructions */}
+          <div className="w-full max-w-sm flex flex-col items-center gap-8">
+            <div className="sm:hidden mt-8">
+              <ResetButton gameOver={gameOver} onRestart={actions.restart} />
+            </div>
+            
+            <Instructions className="w-full mt-6 sm:mt-0" />
+          </div>
         </div>
       </div>
     </div>

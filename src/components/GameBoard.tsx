@@ -1,14 +1,33 @@
 import { COLORS, DARK_COLORS } from "@/constants/game";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useCallback, useRef } from "react";
 
 interface GameBoardProps {
   board: number[][];
   onTouchStart?: (e: React.TouchEvent) => void;
   onTouchEnd?: (e: React.TouchEvent) => void;
+  onDoubleTap?: () => void;
 }
 
-export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoardProps) {
+export default function GameBoard({ board, onTouchStart, onTouchEnd, onDoubleTap }: GameBoardProps) {
   const { isDark } = useTheme();
+  const lastTapRef = useRef<number>(0);
+  
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const now = Date.now();
+    const timeDiff = now - lastTapRef.current;
+    
+    if (timeDiff < 300 && timeDiff > 0) {
+      // Double tap detected
+      e.preventDefault();
+      onDoubleTap?.();
+    } else {
+      // Single tap - call original handler
+      onTouchStart?.(e);
+    }
+    
+    lastTapRef.current = now;
+  }, [onTouchStart, onDoubleTap]);
   
   return (
     <div
@@ -17,7 +36,7 @@ export default function GameBoard({ board, onTouchStart, onTouchEnd }: GameBoard
           ? 'bg-black/30 backdrop-blur-lg border-white/20' 
           : 'bg-white/30 backdrop-blur-lg border-white/40'
       }`}
-      onTouchStart={onTouchStart}
+      onTouchStart={handleTouchStart}
       onTouchEnd={onTouchEnd}
     >
       {board.map((row, y) => (

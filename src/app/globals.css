@@ -1,4 +1,4 @@
-/* Tetris board and cell sizing for mobile-first */
+/* Tetris board and cell sizing - Mobile first with desktop scaling */
 .tetris-board {
   width: 240px;
   height: 480px;
@@ -6,7 +6,19 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
+
+/* Desktop scaling for better visibility and centering */
+@media (min-width: 640px) {
+  .tetris-board {
+    width: 360px;
+    height: 720px;
+    max-height: 90vh;
+    margin: 0;
+  }
+}
+
 .tetris-cell {
   width: 24px;
   height: 24px;
@@ -14,6 +26,16 @@
   max-height: 10vw;
   box-sizing: border-box;
   position: relative;
+}
+
+/* Desktop cell scaling */
+@media (min-width: 640px) {
+  .tetris-cell {
+    width: 36px;
+    height: 36px;
+    max-width: 4vw;
+    max-height: 4vw;
+  }
 }
 
 /* 3D Glass effect for tetris cells */

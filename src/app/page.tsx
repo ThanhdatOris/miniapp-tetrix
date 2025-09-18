@@ -15,6 +15,7 @@ export default function Home() {
     board,
     nextPiece,
     score,
+    highScore,
     level,
     linesCleared,
     gameOver,
@@ -46,6 +47,7 @@ export default function Home() {
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-blue-100 to-indigo-200 py-4 px-2">
       <GameInfo
         score={score}
+        highScore={highScore}
         level={level}
         linesCleared={linesCleared}
         gameOver={gameOver}

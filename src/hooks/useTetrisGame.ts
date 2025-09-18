@@ -21,6 +21,7 @@ export function useTetrisGame() {
   const [currentPiece, setCurrentPiece] = useState<Piece>(getRandomPiece());
   const [nextPiece, setNextPiece] = useState<Piece>(getRandomPiece());
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [level, setLevel] = useState(1);
   const [linesCleared, setLinesCleared] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -33,7 +34,11 @@ export function useTetrisGame() {
       const { newBoard, linesCleared: clearedCount } = clearCompletedLines(mergedBoard);
       
       setBoard(newBoard);
-      setScore(prev => prev + clearedCount * POINTS_PER_LINE * level);
+      setScore(prev => {
+        const newScore = prev + clearedCount * POINTS_PER_LINE * level;
+        setHighScore(current => Math.max(current, newScore));
+        return newScore;
+      });
       setLinesCleared(prev => {
         const newTotal = prev + clearedCount;
         const newLevel = Math.floor(newTotal / LINES_PER_LEVEL) + 1;
@@ -123,6 +128,7 @@ export function useTetrisGame() {
     currentPiece,
     nextPiece,
     score,
+    highScore,
     level,
     linesCleared,
     gameOver,

@@ -1,5 +1,6 @@
 interface GameInfoProps {
   score: number;
+  highScore: number;
   level: number;
   linesCleared: number;
   gameOver: boolean;
@@ -8,6 +9,7 @@ interface GameInfoProps {
 
 export default function GameInfo({ 
   score, 
+  highScore,
   level, 
   linesCleared, 
   gameOver, 
@@ -24,8 +26,9 @@ export default function GameInfo({
       </div>
 
       {/* Game Stats */}
-      <div className="flex gap-4 mb-2 justify-between text-sm font-semibold text-indigo-700">
-        <div>Score: {score}</div>
+      <div className="grid grid-cols-2 gap-2 mb-3 text-sm font-semibold text-indigo-700">
+        <div>Score: {score.toLocaleString()}</div>
+        <div>High: {highScore.toLocaleString()}</div>
         <div>Level: {level}</div>
         <div>Lines: {linesCleared}</div>
       </div>

@@ -1,5 +1,5 @@
-import { Piece } from "@/types/game";
 import { COLORS } from "@/constants/game";
+import { Piece } from "@/types/game";
 
 interface NextPiecePreviewProps {
   nextPiece: Piece;
